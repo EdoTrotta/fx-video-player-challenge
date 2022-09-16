@@ -5,48 +5,46 @@ let video;
 let player;
 
 async function initPlayer() {
-    try {
-        await loadShaka();
-    
-        let manifestUri;
-    
-        manifestUri = 'https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd';
-        shakaInitPlayer(manifestUri);
-    } catch (e) {
-        alert(e);
-    }
+  try {
+    await loadShaka();
+
+    let manifestUri;
+
+    manifestUri =
+      "https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd";
+    shakaInitPlayer(manifestUri);
+  } catch (e) {
+    alert(e);
+  }
 }
 
 // set up basic functionality
 function loadPlayer() {
-    if (!player) {
-        initPlayer();
-    } else {
-        alert("Player already loaded");
-    }
+  if (!player) {
+    initPlayer();
+  } else {
+    alert("Player already loaded");
+  }
 }
 
 function pausePlay() {
-    if (video.paused) {
-        video.play();
-    } else {
-        video.pause();
-    }
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
 }
 
 function destroyPlayer() {
-    player.destroy();
-    player = null;
+  player.destroy();
+  player = null;
 
-    // reset subtitles
-    document
-        .querySelector(".video-container__subtitles").innerText = "";
-    document
-        .querySelector(".video-container__subtitle-tracks")
-        .classList.add("hide");
-    document
-        .querySelector(".video-container__subtitle-tracks")
-        .innerHTML = "";
+  // reset subtitles
+  document.querySelector(".video-container__subtitles").innerText = "";
+  document
+    .querySelector(".video-container__subtitle-tracks")
+    .classList.add("hide");
+  document.querySelector(".video-container__subtitle-tracks").innerHTML = "";
 }
 
 // set up handlers
@@ -57,21 +55,29 @@ const ffBtn = document.querySelector(".ff-btn");
 const destroyBtn = document.getElementById("destroy-btn");
 
 loadBtn.addEventListener("click", () => {
-    loadPlayer();
+  loadPlayer();
 });
 
 playPauseBtn.addEventListener("click", () => {
-    pausePlay();
+  pausePlay();
 });
 
 destroyBtn.addEventListener("click", () => {
-    destroyPlayer();
+  destroyPlayer();
 });
 
 rewindBtn.addEventListener("click", () => {
-
+  if (video.currentTime > 5) {
+    video.currentTime -= 5;
+  } else {
+    console.log("Cannot rewind a negative time");
+  }
 });
 
 ffBtn.addEventListener("click", () => {
-    
+  if (video.currentTime + 5 < video.duration) {
+    video.currentTime += 5;
+  } else {
+    console.log("Cannot skip more than duration");
+  }
 });
