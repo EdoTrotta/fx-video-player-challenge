@@ -1,50 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./index.css" />
-    <script type="text/javascript"src="./utils.js"></script>
+    <script type="text/javascript" src="./utils.js"></script>
     <title>FX Video Player Challenge</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="video-container">
-        <video
-            id="video"
-            autoplay>
-        </video>
-        <div class="video-container__bottom">
-            <div class="video-container__progress">
-                <div class="video-time video-time--currentTime">00:00</div>
-                <progress id="progress" value="0" min="0"></progress>
-                <div class="video-time video-time--duration">00:00</div>
-            </div>
-            <div class="video-container__controls">
-                <img src="./assets/ff.png"  class="rewind-btn">
-                <img src="./assets/play-pause.png" class="playPause-btn" />
-                <img src="./assets/ff.png" class="ff-btn">
-            </div>
+      <video id="video" autoplay></video>
+      <div class="video-container__bottom">
+        <div class="video-container__progress">
+          <div class="video-time video-time--currentTime">00:00</div>
+          <progress id="progress" value="0" min="0"></progress>
+          <div class="video-time video-time--duration">00:00</div>
         </div>
-        <div class="video-container__subtitles custom-subtitles">
+        <div class="video-container__controls">
+          <img src="./assets/ff.png" class="rewind-btn" />
+          <img src="./assets/play-pause.png" class="playPause-btn" />
+          <img src="./assets/ff.png" class="ff-btn" />
         </div>
+      </div>
+      <div class="video-container__subtitles custom-subtitles"></div>
     </div>
     <div class="bottom-container">
-        <div>
-            <button id="load-btn">Load</button>
-            <button id="destroy-btn">Destroy</button>
-        </div>
-        <div style="margin-left: 20px">
-            <strong>Subtitle tracks</strong>
-            <div class="video-container__subtitle-tracks"></div>
-        </div>
-        <div style="margin-left: 20px">
-            <strong>Audio tracks</strong>
-            <div class="video-container__audio-tracks"></div>
-        </div>
+      <div>
+        <button id="load-btn">Load</button>
+        <button id="destroy-btn">Destroy</button>
+      </div>
+      <div style="margin-left: 20px">
+        <strong>Subtitle tracks</strong>
+        <div class="video-container__subtitle-tracks"></div>
+      </div>
+      <div style="margin-left: 20px">
+        <strong>Audio tracks</strong>
+        <div class="video-container__audio-tracks"></div>
+      </div>
     </div>
-    
-    <script type="text/javascript"src="./shaka.js"></script>
-    <script type="text/javascript"src="./index.js"></script>
-</body>
+
+    <script type="text/javascript" src="./shaka.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
+  </body>
 </html>
