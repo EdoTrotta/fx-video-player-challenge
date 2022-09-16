@@ -26,6 +26,14 @@ const shakaConfig = {
   streaming: {
     alwaysStreamText: true,
   },
+  abr: {
+    ...(getDeviceType() == "crapDevice" && {
+      restrictions: {
+        maxHeight: 144,
+        maxWidth: 180,
+      },
+    }),
+  },
 };
 
 async function shakaInitPlayer(manifestUri) {
